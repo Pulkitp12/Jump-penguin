@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            box-sizing: border-box;
+            margin: 0;
+            overflow: hidden;
+        }
+        .game{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: url(./winter-g892840dd0_1920.jpg);
+            background-size: 100vw 100vh;
+            width: 100%;
+            height: 100vh;
+            background-repeat: no-repeat;
+        }
+        .player{
+            background-image: url(./penguin-158551_1280.png);
+            background-repeat: no-repeat;
+            width: 70px;
+            height: 70px;
+            background-size: cover;
+            position: absolute;
+            bottom: 40px;
+            left: 350px;
+        }
+        .enemy{
+            background-image: url(./fish-33712_1280.png);
+            background-repeat: no-repeat;
+            width: 150px;
+            height: 80px;
+            background-size: cover;
+            position: absolute;
+            bottom: 30px !important;
+            left: 1200px;
+        }
+        .move{
+            animation: move 3000ms linear infinite;
+        }
+        @keyframes move{
+            
+            0%{
+                left: 100vw;
+                bottom: 50px;
+            }
+            25%{
+                bottom: 60px;
+            }
+            50%{
+                bottom: 50px;
+            }
+            75%{
+                bottom: 60px;
+            }
+            100%{
+                left: -10px;
+                bottom: 50px;
+            }
+        }
+        .upper{
+            animation: up 1s linear;
+        }
+         @keyframes up{
+            0%{
+                bottom: 50px;
+            }
+            50%{
+                bottom: 400px;
+            }
+            100%{
+                bottom:50px;
+            }
+        }
+        .score{
+            position: absolute;
+            left: 40%;
+            font-size: 30px;
+            top: 20%;
+        }
+        #gameover{
+            position: absolute;
+            left: 40%;
+            font-size: 30px;
+            top: 30%;
+            color: rgb(0, 0, 0);
+            display: none;
+        }
+        .dead{
+            animation: fall 2s linear;
+        }
+        @keyframes fall{
+            0%{
+                bottom: 0;
+            }
+            50%{
+                bottom: 600px;
+                transform: rotateX(180deg);
+            }
+            100%{
+                bottom: 0;
+            }
+        }
+        .base{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-row-gap: 50px;      
+            width: 100%;
+            position: absolute;
+            bottom:0;
+            height:50px; 
+            background-color: blue;
+            padding: auto;
+            animation: mover 5s linear infinite;
+        }
+        @keyframes mover{
+            0%{
+                height: 50px;
+            }
+            25%{
+                height: 60px;
+            }
+            50%{
+                height: 50px;
+            }
+            75%{
+                height: 60px;
+            }
+            100%{
+                height: 50px;
+            }
+        }
+        button{
+            background-color:rgb(182, 219, 182);
+            border: none;
+            height: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game">
+        <div class="score"><h2 id="scr">Your Score is 0</h2></div>
+        <div id="gameover"><h1>Game Over <h1 onclick="rlod()" style="color: rgb(4, 2, 2);font-size: 60px;position: absolute;top: 42%;left: 50%;cursor: grab;">&#8634;</h1></h1></div>
+        <div class="player" id="play"></div>
+        <div class="enemy" id="enemies"></div>
+        <div class="base"></div>
+    </div>
+    <script src="./ind.js"></script>
+</body>
+</html>
